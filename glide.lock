@@ -1,0 +1,31 @@
+hash: 61cc944ff5c5244f1df21bd25a6626da47cbba954f53259bc453402b02d5d45b
+updated: 2019-04-01T15:21:18.132883+08:00
+imports:
+- name: github.com/asaskevich/govalidator
+  version: ccb8e960c48f04d6935e72476ae4a51028f9e22f
+- name: github.com/dgrijalva/jwt-go
+  version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
+- name: github.com/go-sql-driver/mysql
+  version: 72cd26f257d44c1114970e19afddcd812016007e
+- name: github.com/go-xorm/builder
+  version: 1d658d7596c25394aab557ef5b50ef35bf706384
+- name: github.com/go-xorm/core
+  version: ccc80c1adf1f6172bbc548877f50a1163041a40a
+- name: github.com/go-xorm/xorm
+  version: 1f39c590c64924f358c0d89016ac9b2bb84e9125
+- name: github.com/gomodule/redigo
+  version: 9c11da706d9b7902c6da69c592f75637793fe121
+  subpackages:
+  - internal
+  - redis
+- name: github.com/julienschmidt/httprouter
+  version: 348b672cd90d8190f8240323e372ecd1e66b59dc
+- name: github.com/satori/go.uuid
+  version: f58768cc1a7a7e77a3bd49e98cdd21419399b6a3
+- name: google.golang.org/appengine
+  version: 54a98f90d1c46b7731eb8fb305d2a321c30ef610
+  repo: https://github.com/golang/appengine
+  vcs: git
+  subpackages:
+  - cloudsql
+testImports: []
