@@ -4,13 +4,13 @@ import (
 	"github.com/go-xorm/xorm"
 	"github.com/go-xorm/core"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/asaskevich/govalidator"
+	_"github.com/asaskevich/govalidator"
 )
 
 var(
 	engineConn *xorm.Engine
 	dberr  error
-	devSql ="root:@tcp(127.0.0.1:3306)/stream?charset=utf8"
+	devSql ="root:rootfabric@tcp(192.168.57.122:3306)/stream?charset=utf8"
 )
 
 
@@ -33,8 +33,8 @@ func init() {
 	//
 	engineConn.Sync(new(UserInfo),new(VideoInfo),new(VideoComment))
 
-	govalidator.SetNilPtrAllowedByRequired(true)
-	govalidator.SetFieldsRequiredByDefault(true)
+	//govalidator.SetNilPtrAllowedByRequired(true)
+	//govalidator.SetFieldsRequiredByDefault(true)
 }
 
 /**
@@ -112,6 +112,7 @@ func(userInfo *UserInfo) CheckValidator() error{
 	}
 
 	**/
+
 	return nil
 
 }

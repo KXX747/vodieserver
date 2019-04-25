@@ -82,6 +82,8 @@ func createUser(position int)  {
 	userInfo.IsVip="0"
 	b,_:=json.Marshal(userInfo)
 
+	fmt.Println(string(b))
+
 	client := &http.Client{}
 	req, err := http.NewRequest("POST", "http://localhost:8080/user/create", strings.NewReader(string(b)))
 	if err != nil {
@@ -110,7 +112,7 @@ func findUser(position int){
 	UserName:=fmt.Sprintf("%s,%s", "shanghai",  strconv.Itoa(position))
 	findUser.UserName = UserName
 	b ,_:=json.Marshal(findUser)
-	req, err := http.NewRequest("POST", "http://localhost:8080/user/find", strings.NewReader(string(b)))
+	req, err := http.NewRequest("POST", "http://localhost:18080/user/find", strings.NewReader(string(b)))
 	if err != nil {
 		fmt.Println("TestFindUser ",err.Error())
 		return
@@ -139,6 +141,7 @@ func updateUser(position int)  {
 	userInfo.IsVip="1"
 	b,_:=json.Marshal(userInfo)
 
+	fmt.Println(string(b))
 	client := &http.Client{}
 	req, err := http.NewRequest("POST", "http://localhost:8080/user/update", strings.NewReader(string(b)))
 	if err != nil {

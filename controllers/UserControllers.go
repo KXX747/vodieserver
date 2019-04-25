@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"github.com/KXX747/vodieserver/defs"
+	"fmt"
 )
 
 //创建用户
@@ -15,6 +16,8 @@ func CreateUser(w http.ResponseWriter,r *http.Request ,p httprouter.Params)  {
 	body, _ := ioutil.ReadAll(r.Body)
 	var userinfo  models.UserInfo
 	json.Unmarshal(body,&userinfo)
+
+	fmt.Println(userinfo)
 
 	err :=userinfo.CheckValidator()
 	if err!=nil {

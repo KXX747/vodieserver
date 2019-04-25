@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"github.com/KXX747/vodieserver/middleware"
 	"github.com/KXX747/vodieserver/defs"
+	"fmt"
 )
 
 
@@ -24,6 +25,9 @@ func NewMiddleHandler(r *httprouter.Router) http.Handler {
 
 //利用接口拦截参数
 func(m MiddleHandler) ServeHTTP(w http.ResponseWriter,r *http.Request)  {
+
+	fmt.Println(r.Host,"  <><>  ",r.URL.Path)
+
 	//检查身份的合法性
 	validateApi:=middleware.ValidDateApi(r)
 	if !validateApi {

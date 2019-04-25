@@ -5,6 +5,7 @@ import (
 	"github.com/KXX747/vodieserver/middleware"
 	"encoding/json"
 	"github.com/KXX747/vodieserver/defs"
+	"fmt"
 )
 
 //数据处理层
@@ -22,13 +23,17 @@ func(u *UserInfo) CreateUserModles() error {
 	if userInfo.UserName !="" {
 		return errors.New("请选择其他用户名称")
 	}
+
+	fmt.Println("engineConn.Insert  ",u)
 	_, error=engineConn.Insert(u)
 	if error!=nil {
 		return errors.New(defs.ErrorDB.Error.Error)
 	}
 
 	v,_:=json.Marshal(u)
-	error=middleware.RedisSet(userInfo.UserName,v)
+
+	fmt.Println("usercreate  RedisSet  name =",userInfo.UserName," <><>V<><> ",v)
+	error=middleware.RedisSet(u.UserName,v)
 	if error!=nil {
 		return errors.New(defs.ErrorRedis.Error.Error)
 	}
@@ -39,6 +44,7 @@ func(u *UserInfo) CreateUserModles() error {
 func(u *ReuqestUserParmas)  FindUser() (UserInfo,error) {
 	//
 	var userInfo UserInfo
+	fmt.Println("userInfo = ",userInfo)
 	_,err:=engineConn.Where("user_name=?",u.UserName).Get(&userInfo)
 	if err!=nil {
 		return userInfo,err
