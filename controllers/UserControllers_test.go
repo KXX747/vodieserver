@@ -47,6 +47,22 @@ func TestUserWorkFlow(t *testing.T)  {
 	t.Run("delete",TestDeleteUser)
 }
 
+
+//创建用户性能测试
+func BenchmarkCreateUser2(b *testing.B) {
+	for n:=1000;n<b.N ; n++{
+		createUser(n)
+	}
+}
+
+func  BenchmarkFindUser(b *testing.B) {
+	for n:=1000;n<b.N ; n++{
+		findUser(n)
+	}
+}
+
+
+
 //创建用户
 func TestCreateUser(t *testing.T) {
 	createUser(0)
@@ -85,7 +101,7 @@ func createUser(position int)  {
 	fmt.Println(string(b))
 
 	client := &http.Client{}
-	req, err := http.NewRequest("POST", "http://localhost:8080/user/create", strings.NewReader(string(b)))
+	req, err := http.NewRequest("POST", "http://localhost:18080/user/create", strings.NewReader(string(b)))
 	if err != nil {
 		fmt.Println("TestFindUser ",err.Error())
 		return

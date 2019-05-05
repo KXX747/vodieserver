@@ -21,7 +21,7 @@ func RedisConn() redis.Conn {
 }
 
 func init() {
-	server := "127.0.0.1:6379"
+	server :="192.168.57.1:6379"  //"127.0.0.1:6379"
 	password := ""
 
 	connPool = newPool(server, password)

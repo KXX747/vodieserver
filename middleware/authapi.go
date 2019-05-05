@@ -19,14 +19,14 @@ func ValidDateApi(r *http.Request) bool{
 		return true
 	}
 
-	sid := r.Header.Get(HEADER_FIELD_SESSION)
-	if len(sid)==0 {
-		return false
-	}
-	value,err:=RedisGet(sid)
-	if err!=nil||len(value)==0 {
-		return false
-	}
+	//sid := r.Header.Get(HEADER_FIELD_SESSION)
+	//if len(sid)==0 {
+	//	return false
+	//}
+	//value,err:=RedisGet(sid)
+	//if err!=nil||len(value)==0 {
+	//	return false
+	//}
 
 	return true
 }

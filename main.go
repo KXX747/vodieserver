@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"fmt"
 	"github.com/KXX747/vodieserver/handler"
+	_ "net/http/pprof"
 )
 
 
